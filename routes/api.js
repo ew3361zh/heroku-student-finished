@@ -8,7 +8,7 @@ let router = express.Router()
 
 //request to students will cause this functiont to run
 router.get('/students', function(req, res, next) {
-    Student.findAll( {order: ['present', 'name']}).then( students => { //then bc it's a promise
+    Student.findAll( {order: ['present', 'starID']}).then( students => { //then bc it's a promise
         //when the promise resolves it will provide an array of students
         //using order to alphabetize the student list in the app, can be sorted by any characteristics.
         return res.json(students) //must have return when there's a promise
