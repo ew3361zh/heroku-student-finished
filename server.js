@@ -3,9 +3,14 @@ let express = require('express')
 
 //knowledge of what's exported from api.js - the two router.get/.post functions and returns
 let api_routes = require('./routes/api.js')//js is implied but not incorrect to still add on
+let path = require('path')
+
 
 //create new app
 let app = express()
+
+let vueClientPath = path.join(__dirname, 'student-sign-in-client', 'dist')
+app.use(express.static(vueClientPath))
 
 // be able to handle JSON requests, convert data to js
 app.use(express.json())
